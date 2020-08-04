@@ -9,6 +9,6 @@ services:
     ports:
       - 5432:5432
     environment:
-      POSTGRES_DB: testDB2
-      POSTGRES_USER: userDB2
-      POSTGRES_PASSWORD: userDB2
+      POSTGRES_DB: testDB3
+      POSTGRES_USER: userDB3
+      POSTGRES_PASSWORD: userDB3

@@ -1,6 +1,6 @@
 package com.java.javaspringjpapostgresql;
 
-import com.java.javaspringjpapostgresql.entities.RoleEnum;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
