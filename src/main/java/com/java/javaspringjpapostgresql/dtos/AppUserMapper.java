@@ -1,9 +1,11 @@
 package com.java.javaspringjpapostgresql.dtos;
 
 import com.java.javaspringjpapostgresql.entities.AppUserEntity;
+import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
+@Mapper
 public interface AppUserMapper {
 
     AppUserMapper INSTANCE = Mappers.getMapper(AppUserMapper.class);
