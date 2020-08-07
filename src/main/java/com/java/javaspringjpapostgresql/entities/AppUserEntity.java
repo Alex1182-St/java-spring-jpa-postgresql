@@ -31,16 +31,16 @@ public class AppUserEntity {
     private Set<RoleEntity> roles;
 
     @Column(nullable = false)
-    private Boolean isEnabled;
+    private Boolean isEnabled = true;
 
     @Column(nullable = false)
-    private Boolean isAccountNonLocked;
+    private Boolean isAccountNonLocked = true;
 
     @Column(nullable = false)
-    private Boolean isAccountNonExpired;
+    private Boolean isAccountNonExpired = true;
 
     @Column(nullable = false)
-    private Boolean isCredentialsNonExpired;
+    private Boolean isCredentialsNonExpired = true;
 
     @Column(nullable = false, unique = true)
     private String email;
@@ -56,6 +56,10 @@ public class AppUserEntity {
     private String skype;
 
     private int userAge;
+
+    public UUID getId() {
+        return id;
+    }
 
     public AppUserEntity() {
     }
@@ -75,10 +79,6 @@ public class AppUserEntity {
         this.phone = phone;
         this.skype = skype;
         this.userAge = userAge;
-    }
-
-    public UUID getId() {
-        return id;
     }
 
     public void setId(UUID id) {
