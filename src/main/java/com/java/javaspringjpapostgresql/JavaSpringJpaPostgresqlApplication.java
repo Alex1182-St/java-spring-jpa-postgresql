@@ -28,7 +28,6 @@ public class JavaSpringJpaPostgresqlApplication implements CommandLineRunner {
 
 		RoleEntity roleEntity = new RoleEntity();
 		roleEntity.setName(RoleEnum.USER);
-		roleEntity.setDescription("User Rights");
 
 		roleRepo.save(roleEntity);
 	}

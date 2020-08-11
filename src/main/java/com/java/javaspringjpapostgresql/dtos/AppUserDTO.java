@@ -23,9 +23,7 @@ public class AppUserDTO {
 
     private String phone;
 
-    private Boolean isEnabled;
-
-    public AppUserDTO(UUID id, String appUserLogin, String appUserPassword, String email, Set<RoleEntity> roles, String appUserSurname, String appUserName, String phone, Boolean isEnabled) {
+    public AppUserDTO(UUID id, String appUserLogin, String appUserPassword, String email, Set<RoleEntity> roles, String appUserSurname, String appUserName, String phone) {
         this.id = id;
         this.appUserLogin = appUserLogin;
         this.appUserPassword = appUserPassword;
@@ -34,15 +32,6 @@ public class AppUserDTO {
         this.appUserSurname = appUserSurname;
         this.appUserName = appUserName;
         this.phone = phone;
-        this.isEnabled = isEnabled;
-    }
-
-    public Boolean getEnabled() {
-        return isEnabled;
-    }
-
-    public void setEnabled(Boolean enabled) {
-        isEnabled = enabled;
     }
 
     public AppUserDTO() {

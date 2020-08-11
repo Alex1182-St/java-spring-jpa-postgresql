@@ -25,6 +25,9 @@ public class AppUserController {
     @Autowired
     private AppUserRepository appUserRepo;
 
+    @Autowired
+    private AppUserMapper appUserMap;
+
 
     @PostMapping("byId")
     public AppUserDTO appUserByIdWithPost (@RequestBody Map<String, Any> bodyWithUUID) throws Exception {
@@ -33,7 +36,7 @@ public class AppUserController {
 
        AppUserEntity appUserEntity = appUserRepo.findById(userId).orElseThrow(() -> new Exception("User not found with id - " + userId));
 
-       AppUserDTO appUserDTO = AppUserMapper.INSTANCE.appUserEntityToAppUserDto(appUserEntity);
+       AppUserDTO appUserDTO = appUserMap.appUserEntityToAppUserDto(appUserEntity);
 
        return appUserDTO;
 

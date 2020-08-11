@@ -20,9 +20,6 @@ public class AppUserCreateInput {
 
     private int userAge;
 
-    public AppUserCreateInput() {
-    }
-
     public AppUserCreateInput(String appUserLogin, String appUserPassword, String email, String appUserSurname, String appUserName, String phone, String skype, int userAge) {
         this.appUserLogin = appUserLogin;
         this.appUserPassword = appUserPassword;
@@ -32,6 +29,9 @@ public class AppUserCreateInput {
         this.phone = phone;
         this.skype = skype;
         this.userAge = userAge;
+    }
+
+    public AppUserCreateInput() {
     }
 
     public String getAppUserLogin() {

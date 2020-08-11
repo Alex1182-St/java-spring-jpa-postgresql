@@ -1,23 +1,19 @@
 package com.java.javaspringjpapostgresql.dtos;
 
 import com.java.javaspringjpapostgresql.entities.AppUserEntity;
+
 import org.mapstruct.Mapper;
-import org.mapstruct.ValueMapping;
-import org.mapstruct.factory.Mappers;
+import org.mapstruct.ReportingPolicy;
+
+import java.util.Set;
 
 
-@Mapper
+@Mapper(componentModel = "spring",unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface AppUserMapper {
-
-    AppUserMapper INSTANCE = Mappers.getMapper(AppUserMapper.class);
-
 
     AppUserDTO appUserEntityToAppUserDto(AppUserEntity appUserEntity);
 
+    Set<RoleDTO> rolesToDTO(Set<RoleDTO> roleEntities);
 
-    @ValueMapping(source = "AppUserEntity.appUserLogin", target = "username")
-    @ValueMapping(source = "AppUserEntity.appUserPassword", target = "password")
-    @ValueMapping(source = "AppUserEntity.roles", target = "authorities")
-
-    AppUserDetailsDTO appUserEntityToAppUserDetailsDTO(AppUserEntity appUserEntity);
 }
+

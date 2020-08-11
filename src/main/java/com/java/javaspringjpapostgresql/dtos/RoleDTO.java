@@ -1,36 +1,27 @@
-package com.java.javaspringjpapostgresql.entities;
+package com.java.javaspringjpapostgresql.dtos;
+
+import com.java.javaspringjpapostgresql.entities.AppUserEntity;
+import com.java.javaspringjpapostgresql.entities.RoleEnum;
 
 import javax.persistence.*;
 import java.util.Set;
 import java.util.UUID;
 
-@Entity
-@Table(name = "roles")
-public class RoleEntity {
+public class RoleDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(updatable = false, nullable = false, unique = true)
     private UUID id;
 
-    @Enumerated(EnumType.STRING)
-    @Column(unique = true, nullable = false)
     private RoleEnum name;
 
-    @ManyToMany(
-            fetch = FetchType.LAZY,
-            cascade = {CascadeType.PERSIST, CascadeType.MERGE},
-            mappedBy = "roles"
-    )
     private Set<AppUserEntity> appUsers;
 
-    public RoleEntity(UUID id, RoleEnum name, Set<AppUserEntity> appUsers) {
+    public RoleDTO() {
+    }
+
+    public RoleDTO(UUID id, RoleEnum name, Set<AppUserEntity> appUsers) {
         this.id = id;
         this.name = name;
         this.appUsers = appUsers;
-    }
-
-    public RoleEntity() {
     }
 
     public UUID getId() {
@@ -57,5 +48,3 @@ public class RoleEntity {
         this.appUsers = appUsers;
     }
 }
-
-

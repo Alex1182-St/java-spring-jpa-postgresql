@@ -57,13 +57,6 @@ public class AppUserEntity {
 
     private int userAge;
 
-    public UUID getId() {
-        return id;
-    }
-
-    public AppUserEntity() {
-    }
-
     public AppUserEntity(UUID id, String appUserLogin, String appUserPassword, Set<RoleEntity> roles, Boolean isEnabled, Boolean isAccountNonLocked, Boolean isAccountNonExpired, Boolean isCredentialsNonExpired, String email, String appUserSurname, String appUserName, String phone, String skype, int userAge) {
         this.id = id;
         this.appUserLogin = appUserLogin;
@@ -79,6 +72,13 @@ public class AppUserEntity {
         this.phone = phone;
         this.skype = skype;
         this.userAge = userAge;
+    }
+
+    public AppUserEntity() {
+    }
+
+    public UUID getId() {
+        return id;
     }
 
     public void setId(UUID id) {
