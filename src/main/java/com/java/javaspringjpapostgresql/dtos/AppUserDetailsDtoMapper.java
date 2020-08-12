@@ -25,7 +25,14 @@ import java.util.Set;
         protected Collection<GrantedAuthority> mapAuthorities(Set<RoleEntity> roles) {
 
             Collection<GrantedAuthority> authorities = new HashSet<>();
-            authorities.add((GrantedAuthority) roles);
+
+            
+            authorities.add(roles.g) // через цикл выбрать имя???
+
+            //return new MyDto(s.getId(), s.getFirstName() + " " + s.getLastName());
+
+            //authorities.add((GrantedAuthority) roles);
+
             return authorities;
 
         }
