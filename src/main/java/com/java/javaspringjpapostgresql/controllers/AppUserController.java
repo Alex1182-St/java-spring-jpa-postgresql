@@ -2,7 +2,7 @@ package com.java.javaspringjpapostgresql.controllers;
 
 
 import com.java.javaspringjpapostgresql.dtos.AppUserDTO;
-import com.java.javaspringjpapostgresql.dtos.AppUserMapper;
+import com.java.javaspringjpapostgresql.dtos.AppUserDTOMapper;
 import com.java.javaspringjpapostgresql.entities.AppUserEntity;
 import com.java.javaspringjpapostgresql.repositories.AppUserRepository;
 import org.hibernate.mapping.Any;
@@ -26,7 +26,7 @@ public class AppUserController {
     private AppUserRepository appUserRepo;
 
     @Autowired
-    private AppUserMapper appUserMap;
+    private AppUserDTOMapper appUserMap;
 
 
     @PostMapping("byId")

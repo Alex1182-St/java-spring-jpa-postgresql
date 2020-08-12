@@ -10,7 +10,7 @@ import java.util.Set;
 
 
 @Mapper(componentModel = "spring",unmappedTargetPolicy = ReportingPolicy.IGNORE)
-public interface AppUserMapper {
+public interface AppUserDTOMapper {
 
     AppUserDTO appUserEntityToAppUserDto(AppUserEntity appUserEntity);
 
