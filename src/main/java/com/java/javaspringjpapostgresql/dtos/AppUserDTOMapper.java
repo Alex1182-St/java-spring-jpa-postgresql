@@ -16,5 +16,8 @@ public interface AppUserDTOMapper {
 
     Set<RoleDTO> rolesToDTO(Set<RoleEntity> roleEntities);
 
+    // можливо не потрібно Set<RoleDTO> rolesToDTO(Set<RoleEntity> roleEntities);
+    //оскільки в Ентіті та ДТО Set<RoleEntity>, а не Set<RoleDTO>
+
 }
 
