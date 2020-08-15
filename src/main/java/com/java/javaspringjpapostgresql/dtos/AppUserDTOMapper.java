@@ -4,31 +4,34 @@ import com.java.javaspringjpapostgresql.entities.AppUserEntity;
 
 import com.java.javaspringjpapostgresql.entities.RoleEntity;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.springframework.security.core.GrantedAuthority;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Set;
+import java.util.UUID;
 
 
 @Mapper(componentModel = "spring")
-public interface AppUserDTOMapper {
+public abstract class AppUserDTOMapper {
 
-    AppUserDTO toAppUserDto(AppUserEntity appUserEntity);
+    @Mapping(target = "roles", expression = "java( mapRoles(user.getRoles()) )")
+    public abstract AppUserDTO toAppUserDto(AppUserEntity user);
 
-    Set<RoleDTO> rolesToDTO(Set<RoleEntity> roleEntities);
+    protected Collection<UUID> mapRoles(Set<RoleEntity> roles) {
 
+        ArrayList<RoleEntity> roleList = new ArrayList<>();
+
+        roleList.addAll(roles);
+
+        Collection<UUID> rolesIDs = new ArrayList<>();
+
+        for (RoleEntity roleEntity : roleList) {
+            rolesIDs.add(roleEntity.getId());
+        }
+
+        return rolesIDs;
+    }
 }
-
-
-/*
-
-public abstract class AppUserDetailsDTOMapper {
-
-        @Mappings({
-                @Mapping(target = "username", source = "appUserLogin"),
-                @Mapping(target = "password", source = "appUserPassword"),
-                @Mapping(target = "authorities", expression = "java( mapAuthorities(user.getRoles()) )")
-        })
-        public abstract AppUserDetailsDTO toAppUserDetailsDTO(AppUserEntity user);
-
-        protected Collection<GrantedAuthority> mapAuthorities(Set<RoleEntity> roles) {
- */
 

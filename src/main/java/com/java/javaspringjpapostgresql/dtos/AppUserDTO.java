@@ -1,8 +1,7 @@
 package com.java.javaspringjpapostgresql.dtos;
 
-import com.java.javaspringjpapostgresql.entities.RoleEntity;
 
-import java.util.Set;
+import java.util.Collection;
 import java.util.UUID;
 
 public class AppUserDTO {
@@ -15,7 +14,7 @@ public class AppUserDTO {
 
     private String email;
 
-    private Set<RoleEntity> roles;
+    private Collection<UUID> roles;
 
     private String appUserSurname;
 
@@ -23,7 +22,7 @@ public class AppUserDTO {
 
     private String phone;
 
-    public AppUserDTO(UUID id, String appUserLogin, String appUserPassword, String email, Set<RoleEntity> roles, String appUserSurname, String appUserName, String phone) {
+    public AppUserDTO(UUID id, String appUserLogin, String appUserPassword, String email, Collection<UUID> roles, String appUserSurname, String appUserName, String phone) {
         this.id = id;
         this.appUserLogin = appUserLogin;
         this.appUserPassword = appUserPassword;
@@ -69,11 +68,11 @@ public class AppUserDTO {
         this.email = email;
     }
 
-    public Set<RoleEntity> getRoles() {
+    public Collection<UUID> getRoles() {
         return roles;
     }
 
-    public void setRoles(Set<RoleEntity> roles) {
+    public void setRoles(Collection<UUID> roles) {
         this.roles = roles;
     }
 
