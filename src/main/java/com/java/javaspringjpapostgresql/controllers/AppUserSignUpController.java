@@ -2,6 +2,8 @@ package com.java.javaspringjpapostgresql.controllers;
 
 
 import com.java.javaspringjpapostgresql.dtos.AppUserCreateInput;
+import com.java.javaspringjpapostgresql.dtos.AppUserDTO;
+import com.java.javaspringjpapostgresql.dtos.AppUserDTOMapper;
 import com.java.javaspringjpapostgresql.entities.AppUserEntity;
 import com.java.javaspringjpapostgresql.entities.RoleEntity;
 import com.java.javaspringjpapostgresql.entities.RoleEnum;
@@ -34,8 +36,11 @@ public class AppUserSignUpController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    @Autowired
+    private AppUserDTOMapper appUserMap;
+
     @PostMapping("sign_up")
-    public AppUserEntity appUserCreate(@RequestBody AppUserCreateInput newAppUser) {
+    public AppUserDTO appUserCreate(@RequestBody AppUserCreateInput newAppUser) {
 
         Set<RoleEntity> role = new HashSet<>();
 
@@ -54,7 +59,7 @@ public class AppUserSignUpController {
         appUser.setRoles(role);
 
 
-        return appUserRepo.save(appUser);
+        return appUserMap.toAppUserDto(appUserRepo.save(appUser));
     }
 
 

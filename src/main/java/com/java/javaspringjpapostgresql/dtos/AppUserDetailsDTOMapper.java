@@ -6,12 +6,11 @@ import com.java.javaspringjpapostgresql.entities.RoleEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
-import org.mapstruct.ReportingPolicy;
 import org.springframework.security.core.GrantedAuthority;
 
 import java.util.*;
 
-@Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
+@Mapper(componentModel = "spring")
     public abstract class AppUserDetailsDTOMapper {
 
         @Mappings({

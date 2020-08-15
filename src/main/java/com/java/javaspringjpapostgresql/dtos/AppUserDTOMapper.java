@@ -4,20 +4,31 @@ import com.java.javaspringjpapostgresql.entities.AppUserEntity;
 
 import com.java.javaspringjpapostgresql.entities.RoleEntity;
 import org.mapstruct.Mapper;
-import org.mapstruct.ReportingPolicy;
 
 import java.util.Set;
 
 
-@Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
+@Mapper(componentModel = "spring")
 public interface AppUserDTOMapper {
 
     AppUserDTO toAppUserDto(AppUserEntity appUserEntity);
 
     Set<RoleDTO> rolesToDTO(Set<RoleEntity> roleEntities);
 
-    // можливо не потрібно Set<RoleDTO> rolesToDTO(Set<RoleEntity> roleEntities);
-    //оскільки в Ентіті та ДТО Set<RoleEntity>, а не Set<RoleDTO>
-
 }
+
+
+/*
+
+public abstract class AppUserDetailsDTOMapper {
+
+        @Mappings({
+                @Mapping(target = "username", source = "appUserLogin"),
+                @Mapping(target = "password", source = "appUserPassword"),
+                @Mapping(target = "authorities", expression = "java( mapAuthorities(user.getRoles()) )")
+        })
+        public abstract AppUserDetailsDTO toAppUserDetailsDTO(AppUserEntity user);
+
+        protected Collection<GrantedAuthority> mapAuthorities(Set<RoleEntity> roles) {
+ */
 
