@@ -2,6 +2,7 @@ package com.java.javaspringjpapostgresql.services;
 
 
 import com.java.javaspringjpapostgresql.dtos.AppUserDetailsDTO;
+import com.java.javaspringjpapostgresql.dtos.AppUserDetailsDTOMapper;
 import com.java.javaspringjpapostgresql.entities.AppUserEntity;
 import com.java.javaspringjpapostgresql.repositories.AppUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +16,8 @@ public class AppUserDetailsService implements UserDetailsService {
     @Autowired
     private AppUserRepository appUserRepo;
 
-  //  @Autowired
-   // private AppUserDetailsMapper appUserDetailsMap;
+    @Autowired
+    private AppUserDetailsDTOMapper appUserDetailsDtoMapp;
 
 
     @Override
@@ -24,10 +25,6 @@ public class AppUserDetailsService implements UserDetailsService {
 
         AppUserEntity appUserEntity = appUserRepo.findByAppUserLogin(login).orElseThrow();
 
-        AppUserDetailsDTO appUserDetailsDTO =
-
-                //appUserDetailsMap.appUserEntityToAppUserDetailsDto(appUserEntity);
-
-        return appUserDetailsDTO;
+        return appUserDetailsDtoMapp.toAppUserDetailsDTO(appUserEntity);
     }
 }

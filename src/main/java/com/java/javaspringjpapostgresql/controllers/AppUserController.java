@@ -36,9 +36,7 @@ public class AppUserController {
 
        AppUserEntity appUserEntity = appUserRepo.findById(userId).orElseThrow(() -> new Exception("User not found with id - " + userId));
 
-       AppUserDTO appUserDTO = appUserMap.appUserEntityToAppUserDto(appUserEntity);
-
-       return appUserDTO;
+        return appUserMap.toAppUserDto(appUserEntity);
 
     }
 

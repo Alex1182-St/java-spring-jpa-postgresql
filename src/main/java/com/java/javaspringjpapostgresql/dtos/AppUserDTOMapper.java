@@ -9,10 +9,10 @@ import org.mapstruct.ReportingPolicy;
 import java.util.Set;
 
 
-@Mapper(componentModel = "spring",unmappedTargetPolicy = ReportingPolicy.IGNORE)
+@Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface AppUserDTOMapper {
 
-    AppUserDTO appUserEntityToAppUserDto(AppUserEntity appUserEntity);
+    AppUserDTO toAppUserDto(AppUserEntity appUserEntity);
 
     Set<RoleDTO> rolesToDTO(Set<RoleEntity> roleEntities);
 
