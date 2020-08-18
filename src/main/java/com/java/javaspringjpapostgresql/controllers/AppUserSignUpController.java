@@ -55,7 +55,7 @@ public class AppUserSignUpController {
         appUser.setAppUserName(newAppUser.getAppUserName());
         appUser.setPhone(newAppUser.getPhone());
         appUser.setSkype(newAppUser.getSkype());
-        appUser.setUserAge(newAppUser.getUserAge());
+        appUser.setUserAge(newAppUser.getAge());
         appUser.setRoles(role);
 
 

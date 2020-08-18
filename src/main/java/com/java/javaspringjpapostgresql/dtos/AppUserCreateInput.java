@@ -18,9 +18,9 @@ public class AppUserCreateInput {
 
     private String skype;
 
-    private int userAge;
+    private int age;
 
-    public AppUserCreateInput(String appUserLogin, String appUserPassword, String email, String appUserSurname, String appUserName, String phone, String skype, int userAge) {
+    public AppUserCreateInput(String appUserLogin, String appUserPassword, String email, String appUserSurname, String appUserName, String phone, String skype, int age) {
         this.appUserLogin = appUserLogin;
         this.appUserPassword = appUserPassword;
         this.email = email;
@@ -28,7 +28,7 @@ public class AppUserCreateInput {
         this.appUserName = appUserName;
         this.phone = phone;
         this.skype = skype;
-        this.userAge = userAge;
+        this.age = age;
     }
 
     public AppUserCreateInput() {
@@ -90,11 +90,11 @@ public class AppUserCreateInput {
         this.skype = skype;
     }
 
-    public int getUserAge() {
-        return userAge;
+    public int getAge() {
+        return age;
     }
 
-    public void setUserAge(int userAge) {
-        this.userAge = userAge;
+    public void setAge(int age) {
+        this.age = age;
     }
 }
