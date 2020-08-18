@@ -25,8 +25,8 @@ public class AppUserEntity {
     )
     @JoinTable(
             name = "users_roles",
-            joinColumns = {@JoinColumn(name = "appUser_id", referencedColumnName = "id")},
-            inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "id")}
+            joinColumns = @JoinColumn(name = "appUser_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id")
     )
     private Set<RoleEntity> roles;
 

@@ -24,11 +24,15 @@ public class JavaSpringJpaPostgresqlApplication implements CommandLineRunner {
 
 	@Transactional
 	@Override
-	public void run(String... args) throws Exception {
+	public void run(String... args) {
 
-		RoleEntity roleEntity = new RoleEntity();
-		roleEntity.setName(RoleEnum.USER);
+		RoleEntity roleEntityUser = new RoleEntity();
+		roleEntityUser.setName(RoleEnum.USER);
+		roleRepo.save(roleEntityUser);
 
-		roleRepo.save(roleEntity);
+		//Краще вручну додавати якщо  проект на Java
 	}
+
+
+
 }
