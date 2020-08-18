@@ -40,7 +40,35 @@ public class AppUserSignUpController {
     private AppUserDTOMapper appUserMap;
 
     @PostMapping("sign_up")
-    public AppUserDTO appUserCreate(@RequestBody AppUserCreateInput newAppUser) {
+    public AppUserEntity appUserCreate(@RequestBody AppUserCreateInput newAppUser) {
+
+        Set<RoleEntity> role = new HashSet<>();
+
+        role.add(roleRepo.findByName(RoleEnum.USER));
+
+        AppUserEntity appUser = new AppUserEntity();
+
+        appUser.setAppUserLogin(newAppUser.getAppUserLogin());
+        appUser.setAppUserPassword(passwordEncoder.encode(newAppUser.getAppUserPassword()));
+        appUser.setEmail(newAppUser.getEmail());
+        appUser.setAppUserSurname(newAppUser.getAppUserSurname());
+        appUser.setAppUserName(newAppUser.getAppUserName());
+        appUser.setPhone(newAppUser.getPhone());
+        appUser.setSkype(newAppUser.getSkype());
+        appUser.setUserAge(newAppUser.getAge());
+        appUser.setRoles(role);
+
+
+        return appUser;
+    }
+
+
+
+
+}
+
+/*
+public AppUserDTO appUserCreate(@RequestBody AppUserCreateInput newAppUser) {
 
         Set<RoleEntity> role = new HashSet<>();
 
@@ -62,7 +90,4 @@ public class AppUserSignUpController {
         return appUserMap.toAppUserDto(appUserRepo.save(appUser));
     }
 
-
-
-
-}
+  */
