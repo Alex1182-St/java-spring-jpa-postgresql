@@ -41,4 +41,13 @@ public class AppUserController {
         return appUserMap.toAppUserDto(appUserEntity);
     }
 
+    @PreAuthorize("hasRole('USER')")
+    @PostMapping("byId2")
+    public AppUserEntity appUserById2WithPost (@RequestBody Map<String, Object> bodyWithUUID) throws Exception {
+
+        UUID userId = UUID.fromString(bodyWithUUID.get("id").toString());
+        AppUserEntity appUserEntity = appUserRepo.findById(userId).orElseThrow(() -> new Exception("User not found with id - " + userId));
+       return appUserEntity;
+    }
+
 }

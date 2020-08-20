@@ -1,6 +1,8 @@
 package com.java.javaspringjpapostgresql;
 
 
+import com.java.javaspringjpapostgresql.dtos.AppUserDTO;
+import com.java.javaspringjpapostgresql.entities.AppUserEntity;
 import com.java.javaspringjpapostgresql.entities.RoleEntity;
 import com.java.javaspringjpapostgresql.entities.RoleEnum;
 import com.java.javaspringjpapostgresql.repositories.RoleRepository;
@@ -32,7 +34,6 @@ public class JavaSpringJpaPostgresqlApplication implements CommandLineRunner {
 
 		//Краще вручну додавати якщо  проект на Java
 	}
-
 
 
 }
