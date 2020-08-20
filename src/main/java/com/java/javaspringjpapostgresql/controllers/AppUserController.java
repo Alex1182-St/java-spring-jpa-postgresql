@@ -6,6 +6,7 @@ import com.java.javaspringjpapostgresql.dtos.AppUserDTOMapper;
 import com.java.javaspringjpapostgresql.entities.AppUserEntity;
 import com.java.javaspringjpapostgresql.repositories.AppUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
@@ -23,7 +24,7 @@ public class AppUserController {
     @Autowired
     private AppUserDTOMapper appUserMap;
 
-
+    @PreAuthorize("hasRole('USER')")
     @PostMapping("byId")
     public AppUserDTO appUserByIdWithPost (@RequestBody Map<String, Object> bodyWithUUID) throws Exception {
 
