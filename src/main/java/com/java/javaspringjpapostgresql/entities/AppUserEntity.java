@@ -1,6 +1,7 @@
 package com.java.javaspringjpapostgresql.entities;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
@@ -25,10 +26,10 @@ public class AppUserEntity {
     )
     @JoinTable(
             name = "users_roles",
-            joinColumns = @JoinColumn(name = "appUser_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id")
+            joinColumns = {@JoinColumn(name = "appUser_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "id")}
     )
-    private Set<RoleEntity> roles;
+    private Set<RoleEntity> roles = new HashSet<>();
 
     @Column(nullable = false)
     private Boolean isEnabled = true;
@@ -57,6 +58,9 @@ public class AppUserEntity {
 
     private int userAge;
 
+    public AppUserEntity() {
+    }
+
     public AppUserEntity(UUID id, String appUserLogin, String appUserPassword, Set<RoleEntity> roles, Boolean isEnabled, Boolean isAccountNonLocked, Boolean isAccountNonExpired, Boolean isCredentialsNonExpired, String email, String appUserSurname, String appUserName, String phone, String skype, int userAge) {
         this.id = id;
         this.appUserLogin = appUserLogin;
@@ -72,9 +76,6 @@ public class AppUserEntity {
         this.phone = phone;
         this.skype = skype;
         this.userAge = userAge;
-    }
-
-    public AppUserEntity() {
     }
 
     public UUID getId() {

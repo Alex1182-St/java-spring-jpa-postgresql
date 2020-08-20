@@ -1,6 +1,7 @@
 package com.java.javaspringjpapostgresql.entities;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
@@ -14,23 +15,24 @@ public class RoleEntity {
     private UUID id;
 
     @Enumerated(EnumType.STRING)
-    @Column(unique = true, nullable = false)
+    @Column(updatable = false, unique = true, nullable = false)
     private RoleEnum name;
 
     @ManyToMany(
+            mappedBy = "roles",
             fetch = FetchType.LAZY,
-            cascade = {CascadeType.PERSIST, CascadeType.MERGE},
-            mappedBy = "roles"
+            cascade = {CascadeType.PERSIST, CascadeType.MERGE}
     )
-    private Set<AppUserEntity> appUsers;
+    private Set<AppUserEntity> appUsers = new HashSet<>();
+
+
+    public RoleEntity() {
+    }
 
     public RoleEntity(UUID id, RoleEnum name, Set<AppUserEntity> appUsers) {
         this.id = id;
         this.name = name;
         this.appUsers = appUsers;
-    }
-
-    public RoleEntity() {
     }
 
     public UUID getId() {
