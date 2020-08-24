@@ -10,9 +10,11 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "roles")
+/*
 @JsonIdentityInfo(
         generator = ObjectIdGenerators.PropertyGenerator.class,
         property = "id")
+ */
 public class RoleEntity {
 
     @Id
