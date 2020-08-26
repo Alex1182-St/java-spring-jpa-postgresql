@@ -1,5 +1,6 @@
 package com.java.javaspringjpapostgresql.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
@@ -31,6 +32,8 @@ public class RoleEntity {
             fetch = FetchType.LAZY,
             cascade = {CascadeType.PERSIST, CascadeType.MERGE}
     )
+    //@JsonBackReference // @JsonBackReference maps the owning side of the relationship.
+    //@JsonBackReference is the back part of reference – it will be omitted from serialization.
     private Set<AppUserEntity> appUsers = new HashSet<>();
 
 

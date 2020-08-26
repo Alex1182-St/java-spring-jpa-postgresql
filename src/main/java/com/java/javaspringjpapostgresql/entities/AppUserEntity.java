@@ -1,6 +1,7 @@
 package com.java.javaspringjpapostgresql.entities;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
@@ -37,6 +38,8 @@ public class AppUserEntity {
             joinColumns = {@JoinColumn(name = "appUser_id", referencedColumnName = "id")},
             inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "id")}
     )
+    //@JsonManagedReference //@JsonManagedReference is used to annotate the inverse side
+    //@JsonManagedReference is the forward part of reference – the one that gets serialized normally.
     private Set<RoleEntity> roles = new HashSet<>();
 
     @Column(nullable = false)
