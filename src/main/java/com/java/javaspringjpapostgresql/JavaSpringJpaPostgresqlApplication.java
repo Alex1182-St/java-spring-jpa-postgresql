@@ -36,5 +36,4 @@ public class JavaSpringJpaPostgresqlApplication implements CommandLineRunner {
 
 	}
 
-
 }
