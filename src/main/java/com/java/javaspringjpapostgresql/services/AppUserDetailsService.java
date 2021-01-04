@@ -26,7 +26,8 @@ public class AppUserDetailsService implements UserDetailsService {
     @Override
     public AppUserDetailsDTO loadUserByUsername(String login) throws UsernameNotFoundException {
 
-        AppUserEntity appUserEntity = appUserRepo.findByAppUserLogin(login).orElseThrow();
+        AppUserEntity appUserEntity = appUserRepo.findByAppUserLogin(login)
+                .orElseThrow(() -> new UsernameNotFoundException("User Not Found with username: " + login));
 
         return appUserDetailsDtoMapp.toAppUserDetailsDTO(appUserEntity);
     }
